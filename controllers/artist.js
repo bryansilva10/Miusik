@@ -115,7 +115,7 @@ exports.updateArtist = (req, res, next) => {
 	const artistId = req.params.id;
 
 	//updated artist info coming from req body
-	const updated = req.body;
+	const update = req.body;
 
 	//find by id and update in db
 	Artist.findByIdAndUpdate(artistId, update, (err, updatedArtist) => {

@@ -32,7 +32,7 @@ api.delete('/artist/:id', auth.ensureAuth, ArtistController.deleteArtist);
 api.post('/upload-image-artist/:id', [auth.ensureAuth, md_upload], ArtistController.uploadImage);
 
 //GET route for getting artist image
-api.get('/get-image-artist/:imageFile', ArtistController.uploadImage);
+api.get('/get-image-artist/:imageFile', ArtistController.getImageFile);
 
 //exports all routes
 module.exports = api;
