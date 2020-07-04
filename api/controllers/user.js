@@ -158,8 +158,8 @@ exports.uploadImage = (req, res, next) => {
 					//return error response
 					res.status(404).send({ message: 'Could not update user' });
 				} else {
-					//return sucessful response and updated user
-					res.status(200).send({ user: updatedUser });
+					//return sucessful response and updated user with image
+					res.status(200).send({ image: file_name, user: updatedUser });
 				}
 			});
 		} else {

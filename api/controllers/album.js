@@ -10,9 +10,6 @@ const mongoosePaginate = require('mongoose-pagination');
 const Artist = require('../models/artist');
 const Album = require('../models/album');
 const Song = require('../models/song');
-const { find } = require('../models/artist');
-const { EROFS } = require('constants');
-const album = require('../models/album');
 
 //method to get artists
 exports.getAlbum = (req, res, next) => {
