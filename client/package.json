@@ -22,7 +22,7 @@
 		"rxjs": "~6.5.4",
 		"tslib": "^1.10.0",
 		"zone.js": "~0.10.2",
-		"bootstrap": "3.3.6",
+		"bootstrap": "3.4.1",
 		"jquery": "1.12"
 	},
 	"devDependencies": {
