@@ -23,7 +23,7 @@
 		"tslib": "^1.10.0",
 		"zone.js": "~0.10.2",
 		"bootstrap": "3.3.6",
-		"jquery": "1.12"
+		"jquery": "3.5"
 	},
 	"devDependencies": {
 		"@angular-devkit/build-angular": "~0.901.0",
