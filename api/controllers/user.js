@@ -84,7 +84,7 @@ exports.loginUser = (req, res, next) => {
 					//if check is successful
 					if (check) {
 						//check if there is a parameter called gethash
-						if (req.body.gethash) {
+						if (req.body.getHash) {
 							//return a jtw token
 							res.status(200).send({
 								token: jwt.createToken(user)
