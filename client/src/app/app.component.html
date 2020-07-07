@@ -2,18 +2,41 @@
 	<h1>
 		{{title}}
 	</h1>
-	<span>
-		{{identity.name}} {{identity.lastname}}
-	</span>
-	<span class="btn btn-warning" (click)="logout()">
-		Log Out
-	</span>
+	<nav id="navigation">
+		<a href="#">
+			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+			Search
+		</a>
+		<a href="#">
+			<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+			Artists
+		</a>
+		<a href="#">
+			<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+			Albums
+		</a>
+	</nav>
+	<nav id="user_logged">
+		<span>
+			{{identity.name}}
+		</span>
+		<span class="btn btn-warning" (click)="logout()">
+			Log Out
+		</span>
+		<span>
+			<a href="#">
+				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+				My Info
+			</a>
+		</span>
+	</nav>
 </div>
 
 <div class="clearfix"></div>
 
 <div *ngIf="identity" class="central col-lg-11">
 	<p>You are logged in...</p>
+	<user-edit></user-edit>
 </div>
 
 <!-- Show only when not authenticated -->
