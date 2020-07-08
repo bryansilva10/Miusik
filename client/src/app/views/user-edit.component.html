@@ -25,14 +25,14 @@
 		</p>
 
 		<div class="editImage" *ngIf="user.image && user.image != 'null'">
-			<img src="" alt="">
+			<img src="{{url + 'get-image-user/' + user.image}}" style="width: 100px" alt="userAvatar">
 		</div>
 
 		<p>
 			<label for="avatar">
 				Upload Picture:
 			</label>
-			<input type="file" placeholder="Upload Image...">
+			<input type="file" placeholder="Upload Image..." (change)="fileChangeEvent($event)">
 		</p>
 
 		<input type="submit" value="Update Info" class="btn btn-primary">

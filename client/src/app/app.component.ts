@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './models/user'; //import user model
 import { UserService } from './services/user.service'; //import user service
+import { GLOBAL } from './services/global';
+
 
 @Component({
 	selector: 'app-root',
@@ -15,6 +17,7 @@ export class AppComponent implements OnInit {
 	public token;
 	public errorMessage;
 	public alertRegister;
+	public url: string;
 
 	//cosntructor for component, inject user service
 	constructor(private userService: UserService) {
@@ -27,6 +30,7 @@ export class AppComponent implements OnInit {
 	ngOnInit() {
 		this.identity = this.userService.getIdentity();
 		this.token = this.userService.getToken();
+		this.url = GLOBAL.url;
 	}
 
 	//method to react to submitting form
