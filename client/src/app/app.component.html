@@ -1,6 +1,9 @@
 <div *ngIf="identity" class="navigation col-lg-1">
-	<h1>
-		{{title}}
+	<h1 class="head-title">
+		<a routerLink="/">
+			<span class="glyphicon glyphicon-music" aria-hidden="true"></span>
+			{{title}}
+		</a>
 	</h1>
 	<nav id="navigation">
 		<a href="#">
@@ -18,32 +21,30 @@
 	</nav>
 	<nav id="user_logged">
 		<div class="userImage">
-			<img id="imageLogged" src="{{url + 'get-image-user/' + identity.image}}" style="width: 100px" alt="userAvatar">
+			<img id="imageLogged" src="{{url + 'get-image-user/' + identity.image}}" alt="userAvatar">
 		</div>
 		<span id="identity_name">
 			{{identity.name}}
-		</span>
-		<span class="btn btn-warning" (click)="logout()">
-			Log Out
 		</span>
 		<span>
 			<a routerLink="/my-info">
 				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 				My Info
 			</a>
+			<a class="log-out" (click)="logout()">
+				<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+				Log Out
+			</a>
 		</span>
 	</nav>
 </div>
 
-<div class="clearfix"></div>
-
 <div *ngIf="identity" class="central col-lg-11">
-	<p>You are logged in...</p>
 	<router-outlet></router-outlet>
 </div>
 
 <!-- Show only when not authenticated -->
-<div class="col-lg-12" *ngIf="!identity">
+<div class="col-lg-11" *ngIf="!identity">
 	<div class="col-lg-6">
 		<h1>Log In</h1>
 		<!-- Show error message if there is one -->

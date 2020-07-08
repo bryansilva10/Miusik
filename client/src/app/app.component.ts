@@ -6,7 +6,8 @@ import { GLOBAL } from './services/global';
 
 @Component({
 	selector: 'app-root',
-	templateUrl: './app.component.html'
+	templateUrl: './app.component.html',
+	styleUrls: ['../assets/css/styles.css']
 })
 export class AppComponent implements OnInit {
 	//properties of class
