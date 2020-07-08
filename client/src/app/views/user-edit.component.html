@@ -1,4 +1,40 @@
-<div class="col-lg-6" *ngIf="identity">
+<!-- Form to edit personal info -->
+<div class="col-lg-6">
 	<h1>{{title}}</h1>
+	<div *ngIf="alertUpdate">
+		<div class="alert alert-success">
+			{{alertUpdate}}
+		</div>
+	</div>
+	<form class="col-md-10" #updateUserForm="ngForm" (ngSubmit)="onSubmit()">
+		<p>
+			<label for="Name">Name:</label>
+			<input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="user.name" required>
+			<span *ngIf="!name.valid && name.touched">Please enter a valid Name</span>
+		</p>
+		<p>
+			<label for="Lastname">Last name:</label>
+			<input type="text" class="form-control" name="lastname" #lastname="ngModel" [(ngModel)]="user.lastname" required>
+			<span *ngIf="!lastname.valid && lastname.touched">Please enter a valid Last Name</span>
+		</p>
+		<p>
+			<label for="Email">Email:</label>
+			<!-- Two way binding on user.email (on class) and #email (on template) -->
+			<input type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="user.email" required>
+			<span *ngIf="!email.valid && email.touched">Please enter a valid Email</span>
+		</p>
 
+		<div class="editImage" *ngIf="user.image && user.image != 'null'">
+			<img src="" alt="">
+		</div>
+
+		<p>
+			<label for="avatar">
+				Upload Picture:
+			</label>
+			<input type="file" placeholder="Upload Image...">
+		</p>
+
+		<input type="submit" value="Update Info" class="btn btn-primary">
+	</form>
 </div>

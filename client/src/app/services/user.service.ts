@@ -54,7 +54,7 @@ export class UserService {
 	}
 
 	//method to update user info
-	updateUser(userToUpdate) {
+	updateUser(userToUpdate): Observable<any> {
 		//stringify the user to pass as param later
 		let params = JSON.stringify(userToUpdate);
 

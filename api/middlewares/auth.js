@@ -6,6 +6,8 @@ const secret = 'secret_password_miusik'; //used for hash
 
 //Method to make sure request is authenticated
 exports.ensureAuth = (req, res, next) => {
+
+	let payload;
 	//check if auth header is not set
 	if (!req.headers.authorization) {
 		//return response with error
@@ -19,7 +21,7 @@ exports.ensureAuth = (req, res, next) => {
 	//try to decode token
 	try {
 		//decode token and store
-		const payload = jwt.decode(token, secret);
+		payload = jwt.decode(token, secret);
 
 		//if the data contains an exp date before current data...
 		if (payload.exp <= moment().unix()) {

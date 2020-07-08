@@ -17,14 +17,14 @@
 		</a>
 	</nav>
 	<nav id="user_logged">
-		<span>
+		<span id="identity_name">
 			{{identity.name}}
 		</span>
 		<span class="btn btn-warning" (click)="logout()">
 			Log Out
 		</span>
 		<span>
-			<a href="#">
+			<a routerLink="/my-info">
 				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 				My Info
 			</a>
@@ -36,7 +36,7 @@
 
 <div *ngIf="identity" class="central col-lg-11">
 	<p>You are logged in...</p>
-	<user-edit></user-edit>
+	<router-outlet></router-outlet>
 </div>
 
 <!-- Show only when not authenticated -->

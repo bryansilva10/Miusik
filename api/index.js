@@ -9,7 +9,7 @@ const port = process.env.PORT || 3977;
 
 
 //connect to database
-mongoose.connect('mongodb+srv://admin-bryan:bryanpass@cluster0-mnqtb.mongodb.net/miusik?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true }, (err, res) => {
+mongoose.connect('mongodb+srv://admin-bryan:bryanpass@cluster0-mnqtb.mongodb.net/miusik?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false }, (err, res) => {
 	//if there is an error
 	if (err) {
 		throw err;

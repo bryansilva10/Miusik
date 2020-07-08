@@ -1,11 +1,35 @@
-import { NgModule } from '@angular/core';
+//imports necessary for routing
+// import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 
+import { UserEditComponent } from './components/user-edit.component';
 
-const routes: Routes = [];
+//array for all routes
+const appRoutes: Routes = [
+	{
+		path: '',
+		component: UserEditComponent
+	},
+	{
+		path: 'my-info',
+		component: UserEditComponent
+	},
+	{
+		path: '**',
+		component: UserEditComponent
+	}
+];
 
+//ng module to import and export modules
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	//import router moule for app Routes
+	imports: [RouterModule.forRoot(appRoutes)],
+	//export this router module to be used in app module
+	exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+//expor the routing class
+export class AppRoutingModule {
+
+}

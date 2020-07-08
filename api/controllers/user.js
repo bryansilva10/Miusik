@@ -110,6 +110,12 @@ exports.updateUser = (req, res, next) => {
 	//retrieve modified body
 	const update = req.body;
 
+	//check if user is authenticated before allowing to update info
+	if (userId != req.user.sub) {
+		//return error rsponse and exit 
+		return res.status(500).send({ message: 'Not Allowed to update user' });
+	}
+
 	//use model to find user by id and update entire user
 	User.findByIdAndUpdate(userId, update, (err, updatedUser) => {
 		//if there was an error updating...
