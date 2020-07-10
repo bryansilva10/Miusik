@@ -1,0 +1,5 @@
+<div class="head-page" *ngIf="identity">
+	<h1>{{title}}</h1>
+	<a class="btn btn-default" routerLink="/create-artist" *ngIf="identity && identity.role == 'ROLE_ADMIN'">Add
+		Artist</a>
+</div>

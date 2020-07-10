@@ -3,13 +3,26 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+//import components
 import { UserEditComponent } from './components/user-edit.component';
+import { ArtistListComponent } from './components/artist-list.component';
+import { ArtistAddComponent } from './components/artist-add.component';
+import { HomeComponent } from './components/home.component';
+
 
 //array for all routes
 const appRoutes: Routes = [
 	{
 		path: '',
-		component: UserEditComponent
+		component: HomeComponent
+	},
+	{
+		path: 'artists/:page',
+		component: ArtistListComponent
+	},
+	{
+		path: 'create-artist',
+		component: ArtistAddComponent
 	},
 	{
 		path: 'my-info',
@@ -17,7 +30,7 @@ const appRoutes: Routes = [
 	},
 	{
 		path: '**',
-		component: UserEditComponent
+		component: HomeComponent
 	}
 ];
 

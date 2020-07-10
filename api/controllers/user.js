@@ -16,7 +16,7 @@ exports.saveUser = (req, res, next) => {
 	const name = req.body.name;
 	const lastname = req.body.lastname;
 	const email = req.body.email;
-	const role = 'ROLE_ADMIN';
+	const role = 'ROLE_USER';
 	const image = 'null';
 
 	//check if password exists

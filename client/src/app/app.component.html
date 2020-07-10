@@ -10,7 +10,7 @@
 			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 			Search
 		</a>
-		<a href="#">
+		<a [routerLink]="['/artists', 1]" routerLinkActive="active">
 			<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 			Artists
 		</a>
@@ -27,7 +27,7 @@
 			{{identity.name}}
 		</span>
 		<span>
-			<a routerLink="/my-info">
+			<a routerLink="/my-info" routerLinkActive="active">
 				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 				My Info
 			</a>
@@ -39,7 +39,7 @@
 	</nav>
 </div>
 
-<div *ngIf="identity" class="central col-lg-11">
+<div [class.hidden]="!identity" class="central col-lg-11">
 	<router-outlet></router-outlet>
 </div>
 

@@ -1,6 +1,11 @@
 html, body {
 	margin: 0px;
-	height: 100%;
+	background: #eee;
+}
+
+.active {
+	border-bottom: 2px solid #388c14;
+	padding-bottom: 4px;
 }
 
 .head-title {
@@ -26,9 +31,10 @@ html, body {
 	text-decoration: none;
 }
 
-.navigation a:hover {
+.navigation a:hover, a:focus {
 	color: white;
 	font-weight: bold;
+	text-decoration: none;
 }
 
 .navigation .glyphicon {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './models/user'; //import user model
 import { UserService } from './services/user.service'; //import user service
 import { GLOBAL } from './services/global';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class AppComponent implements OnInit {
 	public url: string;
 
 	//cosntructor for component, inject user service
-	constructor(private userService: UserService) {
+	constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) {
 		//instantiate empty user
 		this.user = new User('', '', '', '', '', 'ROLE_USER', '');
 		this.user_register = new User('', '', '', '', '', 'ROLE_USER', '');
@@ -120,6 +121,9 @@ export class AppComponent implements OnInit {
 		//reset identity and token
 		this.identity = null;
 		this.token = null;
+
+		//redirect on logout
+		this.router.navigate(['/']);
 	}
 
 	//method for registration
