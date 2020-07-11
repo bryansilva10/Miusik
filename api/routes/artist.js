@@ -20,7 +20,7 @@ api.get('/artist/:id', auth.ensureAuth, ArtistController.getArtist);
 api.post('/artist', auth.ensureAuth, ArtistController.saveArtist);
 
 //GET route for retrieving all artists with optional pagination
-api.get('/artist/:page?', auth.ensureAuth, ArtistController.getArtists);
+api.get('/artists/:page?', auth.ensureAuth, ArtistController.getArtists);
 
 //PUT route to update an existing Artist
 api.put('/artist/:id', auth.ensureAuth, ArtistController.updateArtist);

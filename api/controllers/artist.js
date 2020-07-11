@@ -40,14 +40,14 @@ exports.getArtists = (req, res, next) => {
 	//if there is a page parameter...
 	if (req.params.page) {
 		//retrieve and assign page from params
-		const page = req.params.page;
+		var page = req.params.page;
 	} else {
 		//default to 1
-		const page = 1;
+		var page = 1;
 	}
 
 	//how many artists per page
-	const itemsPerPage = 3;
+	const itemsPerPage = 4;
 
 	//find all Artists
 	Artist.find()
