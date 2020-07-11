@@ -188,7 +188,7 @@ exports.uploadImage = (req, res, next) => {
 		//retrieve file path from req
 		const file_path = req.files.image.path;
 		//split file path
-		const file_split = file_path.split('\\');
+		const file_split = file_path.split(path.sep);
 		//get only name from split file name
 		const file_name = file_split[2];
 

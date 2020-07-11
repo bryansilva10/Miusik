@@ -98,7 +98,7 @@ exports.saveArtist = (req, res, next) => {
 			res.status(500).send({ message: 'Error saving Artist' });
 		} else {
 			//if we don't get stored artist...
-			if (!artistStored) {
+			if (!storedArtist) {
 				//send error message response
 				res.status(404).send({ message: 'Could not save artist' });
 			} else {
@@ -204,12 +204,12 @@ exports.uploadImage = (req, res, next) => {
 		//retrieve file path from req
 		const file_path = req.files.image.path;
 		//split file path
-		const file_split = file_path.split('\\');
+		const file_split = file_path.split(path.sep);
 		//get only name from split file name
 		const file_name = file_split[2];
 
 		//split on dot and get file extension
-		const ext_split = name.split('\.');
+		const ext_split = file_name.split('\.');
 		const file_ext = ext_split[1];
 
 		//check if file has correct extension
@@ -219,7 +219,7 @@ exports.uploadImage = (req, res, next) => {
 				//if thre is an error with the returned user
 				if (!updatedArtist) {
 					//return error response
-					res.status(404).send({ message: 'Could not update user' });
+					res.status(404).send({ message: 'Could not update Artist' });
 				} else {
 					//return sucessful response and updated user
 					res.status(200).send({ artist: updatedArtist });

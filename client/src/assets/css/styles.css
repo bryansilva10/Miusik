@@ -71,3 +71,9 @@ html, body {
 #user_logged .userImage img {
 	width: 57px;
 }
+
+/* ARTIST RELATED */
+
+.artistImageForEdit img{
+	width: 300px;
+}

@@ -1,18 +1,43 @@
-<h1>{{title}}</h1>
+<div class="col-lg-4" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+	<h1>{{title}}</h1>
 
-<!-- FORM TO ADD NEW ARTIST -->
-<form #formArtist="ngForm" (ngSubmit)="onSubmit()" class="col-lg-3">
-	<p>
-		<label for="name">Name:</label>
-		<input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="artist.name" required>
-		<span *ngIf="!name && name.touched">Name is not valid</span>
-	</p>
-	<p>
-		<label for="description">Description::</label>
-		<textarea name="description" class="form-control" #description="ngModel" [(ngModel)]="artist.description"
-			required></textarea>
-		<span *ngIf="!description && description.touched">Description is not valid</span>
-	</p>
+	<div *ngIf="alertMessage">
+		<div class="alert alert-success">
+			{{alertMessage}}
+		</div>
+	</div>
 
-	<input type="submit" class="btn btn-success" value="{{title}}" [disabled]="!formArtist.form.valid">
-</form>
+	<!-- FORM TO ADD NEW ARTIST -->
+	<form #formArtist="ngForm" (ngSubmit)="onSubmit()">
+		<p>
+			<label for="name">Name:</label>
+			<input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="artist.name" required>
+			<span *ngIf="!name && name.touched">Name is not valid</span>
+		</p>
+		<p>
+			<label for="description">Description:</label>
+			<textarea name="description" class="form-control" #description="ngModel" [(ngModel)]="artist.description"
+				required></textarea>
+			<span *ngIf="!description && description.touched">Description is not valid</span>
+		</p>
+
+		<div *ngIf="isEdit">
+			<div class="artistImageForEdit" *ngIf="artist.image && artist.image != 'null'">
+				<img src="{{url + 'get-image-artist/' + artist.image }}">
+			</div>
+
+			<p>
+				<label for="ArtistImage">Upload Artist Image</label>
+				<input type="file" placeholder="Upload Image" (change)="fileChangeEvent($event)">
+			</p>
+
+		</div>
+
+		<input type="submit" class="btn btn-success" value="{{title}}" [disabled]="!formArtist.form.valid">
+	</form>
+</div>
+
+<div class="col-lg-4" *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+	<h1>Error:</h1>
+	<p>You don't have access to this part of the application...</p>
+</div>

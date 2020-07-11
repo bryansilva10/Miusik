@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { UserEditComponent } from './components/user-edit.component';
 import { ArtistListComponent } from './components/artist-list.component';
 import { ArtistAddComponent } from './components/artist-add.component';
+import { ArtistEditComponent } from './components/artist-edit.component';
 import { HomeComponent } from './components/home.component';
 
 
@@ -23,6 +24,10 @@ const appRoutes: Routes = [
 	{
 		path: 'create-artist',
 		component: ArtistAddComponent
+	},
+	{
+		path: 'edit-artist/:id',
+		component: ArtistEditComponent
 	},
 	{
 		path: 'my-info',

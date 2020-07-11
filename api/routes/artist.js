@@ -11,7 +11,7 @@ const auth = require('../middlewares/auth');
 //for file upload 
 const multipart = require('connect-multiparty');
 //upload middlware
-const md_upload = multipart({ uploadDir: './uploads/artist' });
+const md_upload = multipart({ uploadDir: './uploads/artists' });
 
 //GET route for retrieving a specific artist
 api.get('/artist/:id', auth.ensureAuth, ArtistController.getArtist);

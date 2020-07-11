@@ -4,7 +4,6 @@
 import { Injectable } from '@angular/core';
 import { GLOBAL } from './global';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs';
 
 //make this service available from the root component
