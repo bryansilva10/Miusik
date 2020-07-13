@@ -77,3 +77,43 @@ html, body {
 .artistImageForEdit img{
 	width: 300px;
 }
+
+.artistList {
+	margin: 0;
+	padding: 0px;
+	margin-top: 100px;
+	margin-left: 250px;
+	list-style: none;
+}
+
+.artistItem {
+	width: 25% !important;
+	margin: 0px;
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	height: 342px;
+	border: 1px solid #444;
+	margin-left: 25px;
+	/* margin-top: 20px; */
+}
+
+.artistItem .artistImage {
+	height: 270px;
+	width: 100%;
+	overflow: hidden;
+	background: black;
+}
+
+.artistItem .artistImage img{
+	height: 100%;
+	min-width: 100%;
+}
+
+.artistItem .artistName{
+	color: white;
+	padding: 10px;
+	background: #222326;
+}
+.artistItem .artistName a {
+	color: white;
+}

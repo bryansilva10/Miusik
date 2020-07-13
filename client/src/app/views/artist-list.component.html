@@ -14,16 +14,17 @@
 <ul class="artistList" *ngIf="identity">
 	<li *ngFor="let artist of artists" class="col-lg-3 artistItem">
 		<div class="artistImage">
-			<img src="{{url + 'get-image-artist/' + artist.image}}" style="width:100px;">
+			<img src="{{url + 'get-image-artist/' + artist.image}}">
 		</div>
+
 		<div class="artistName">
-			<a href="#">{{artist.name}}</a>
-		</div>
+			<a [routerLink]="['/artist', artist._id]">{{artist.name}}</a>
 
-		<div class="buttons btn-toolbar" *ngIf="identity.role == 'ROLE_ADMIN'">
-			<a class="btn btn-sm btn-warning" [routerLink]="['/edit-artist/', artist._id]">Edit</a>
-			<a class="btn btn-sm btn-danger">Delete</a>
-		</div>
+			<div class="buttons btn-toolbar" *ngIf="identity.role == 'ROLE_ADMIN'">
+				<a class="btn btn-sm btn-warning" [routerLink]="['/edit-artist/', artist._id]">Edit</a>
+				<a class="btn btn-sm btn-danger">Delete</a>
+			</div>
 
+		</div>
 	</li>
 </ul>

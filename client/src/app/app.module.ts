@@ -8,6 +8,7 @@ import { UserEditComponent } from './components/user-edit.component';
 import { ArtistListComponent } from './components/artist-list.component';
 import { ArtistAddComponent } from './components/artist-add.component';
 import { ArtistEditComponent } from './components/artist-edit.component';
+import { ArtistDetailComponent } from './components/artist-detail.component';
 import { HomeComponent } from './components/home.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HomeComponent } from './components/home.component';
 		ArtistListComponent,
 		ArtistAddComponent,
 		ArtistEditComponent,
+		ArtistDetailComponent,
 		HomeComponent
 	],
 	imports: [

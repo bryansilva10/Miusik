@@ -47,7 +47,7 @@ exports.getArtists = (req, res, next) => {
 	}
 
 	//how many artists per page
-	const itemsPerPage = 4;
+	const itemsPerPage = 3;
 
 	//find all Artists
 	Artist.find()
