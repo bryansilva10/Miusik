@@ -22,9 +22,13 @@
 
 			<div class="buttons btn-toolbar" *ngIf="identity.role == 'ROLE_ADMIN'">
 				<a class="btn btn-sm btn-warning" [routerLink]="['/edit-artist/', artist._id]">Edit</a>
-				<a class="btn btn-sm btn-danger">Delete</a>
+				<a class="btn btn-sm btn-danger" (click)="onDeleteConfirm(artist._id)">Delete</a>
 			</div>
 
+			<div class="confirmed btn-toolbar" *ngIf="confirmed == artist._id">
+				<a class="btn btn-sm btn-danger" (click)="onDeleteArtist(artist._id)">Delete</a>
+				<a class="btn btn-sm btn-primary" (click)="onCancelArtist()">Cancel</a>
+			</div>
 		</div>
 	</li>
 </ul>

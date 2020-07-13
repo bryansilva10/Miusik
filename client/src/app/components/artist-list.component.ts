@@ -21,6 +21,7 @@ export class ArtistListComponent implements OnInit {
 	public url: string;
 	public nextPage;
 	public prevPage;
+	public confirmed;
 
 	//constructor, inject services
 	constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private artistService: ArtistService) {
@@ -93,5 +94,49 @@ export class ArtistListComponent implements OnInit {
 					}
 				)
 		})
+	}
+
+	//method to confirm deletion
+	onDeleteConfirm(id) {
+		//assign id to confirm
+		this.confirmed = id;
+	}
+
+	//method to cancel deletion
+	onCancelArtist() {
+		//set to null
+		this.confirmed = null;
+	}
+
+	////method to delete artist
+	onDeleteArtist(id) {
+		//user service to delete, pass token and id
+		this.artistService.deleteArtist(this.token, id)
+			//subscribe to response
+			.subscribe(
+				response => {
+					//if artist is not retrieve correctly
+					if (!response.artist) {
+						//alert
+						alert('Error on Server');
+					}
+					//list all artists
+					this.getArtists()
+				},
+				//in case of error
+				error => {
+					//create message
+					const errorMessage = <any>error;
+
+					//If ther is an error, log it
+					if (errorMessage != null) {
+						//parse body of error to json
+						// let body = JSON.parse(error._body);
+						//assign error on body to errormessage property
+						// this.alertMessage = error.error.message;
+						console.log(errorMessage);
+					}
+				}
+			)
 	}
 }

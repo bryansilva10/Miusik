@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { ArtistService } from 'src/app/services/artist.service';
 import { Artist } from '../models/artist';
 import { GLOBAL } from '../services/global';
+import { Album } from '../models/album';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { GLOBAL } from '../services/global';
 export class ArtistDetailComponent implements OnInit {
 	//component properties
 	public artist: Artist;
+	public albums: Album[];
 	public identity;
 	public token;
 	public url: string;
@@ -51,6 +53,8 @@ export class ArtistDetailComponent implements OnInit {
 						} else {
 							//retrieve artist and assign to component prop
 							this.artist = response.artist;
+
+							//RETRIEVE ALBUMS
 						}
 					},
 					//in case of error

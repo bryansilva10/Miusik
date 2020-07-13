@@ -8,6 +8,17 @@ html, body {
 	padding-bottom: 4px;
 }
 
+.central {
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.confirmed {
+	margin-top: -30px;
+	position: absolute;
+	background: #222326;
+}
+
 .head-title {
 	font-size: 20px;
 	font-weight: bold;
@@ -114,6 +125,19 @@ html, body {
 	padding: 10px;
 	background: #222326;
 }
+
 .artistItem .artistName a {
 	color: white;
+}
+
+.artist-head-card .image {
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	float: left;
+	margin-right: 30px;
+}
+
+.artist-head-card .image img {
+	width: 300px;
 }
