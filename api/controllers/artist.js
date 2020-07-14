@@ -14,7 +14,7 @@ const Song = require('../models/song');
 //method to get artists
 exports.getArtist = (req, res, next) => {
 	//retrieve artist id from param
-	const artistId = req.params.id;
+	var artistId = req.params.id;
 
 	//find artist by id
 	Artist.findById(artistId, (err, artist) => {
@@ -29,7 +29,7 @@ exports.getArtist = (req, res, next) => {
 				res.status(404).send({ message: 'Artist was not found' });
 			} else {
 				//send success respoonse and artist
-				res.status(200).send({ artist: artist });
+				res.status(200).send({ artist });
 			}
 		}
 	})

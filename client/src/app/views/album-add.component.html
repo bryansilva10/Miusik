@@ -1,0 +1,33 @@
+<div class="col-lg-4">
+	<h1>{{componentTitle}}</h1>
+
+	<div *ngIf="alertMessage">
+		<div class="alert alert-success">
+			{{alertMessage}}
+		</div>
+	</div>
+
+	<!-- FORM TO ADD NEW ALBUM -->
+	<form #formAlbum="ngForm" (ngSubmit)="onSubmit()">
+
+
+		<p>
+			<label for="title">Title:</label>
+			<input type="text" class="form-control" name="title" #title="ngModel" [(ngModel)]="album.title" required>
+			<span *ngIf="!title.valid && title.touched">Title is not valid</span>
+		</p>
+		<p>
+			<label for="description">Description:</label>
+			<textarea name="description" class="form-control" #description="ngModel" [(ngModel)]="album.description"
+				required></textarea>
+			<span *ngIf="!description && description.touched">Description is not valid</span>
+		</p>
+		<p>
+			<label for="year">Year:</label>
+			<input type="text" class="form-control" name="year" #year="ngModel" [(ngModel)]="album.year" required>
+			<span *ngIf="!year.valid && year.touched">Year is not valid</span>
+		</p>
+
+		<input type="submit" value="{{componentTitle}}" [disabled]="!formAlbum.form.valid" class="btn btn-success">
+	</form>
+</div>

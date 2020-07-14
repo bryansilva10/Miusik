@@ -31,7 +31,7 @@ export class ArtistEditComponent implements OnInit {
 		this.token = this.userService.getToken();
 		this.url = GLOBAL.url;
 		//initialize artist object
-		this.artist = new Artist('', '', '');
+		this.artist = new Artist('', '', '', '');
 		this.isEdit = true;
 
 	}
