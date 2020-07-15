@@ -17,6 +17,30 @@
 
 	<div id="gallery-albums" *ngIf="albums">
 		<!-- SHOW ALBUMS -->
+		<ul class="album-list">
+			<li class="col-lg-4 album-item" *ngFor="let album of albums">
+				<div class="album-image">
+					<img src="{{url + 'get-image-album/' + album.image}}">
+				</div>
+				<div class="album-name">
+					<p>
+						<a href="#">{{album.title}}</a>
+					</p>
+					<p>
+						<a [routerLink]="['/artist', album.artist._id]">{{album.artist.name}}</a>
+					</p>
+					<div class="buttons btn-toolbar" *ngIf="identity.role == 'ROLE_ADMIN'">
+						<a class="btn btn-sm btn-warning" [routerLink]="['/edit-album/', album._id]">Edit</a>
+						<a class="btn btn-sm btn-danger" (click)="onDeleteConfirm(album._id)">Delete</a>
+					</div>
+				</div>
+
+				<div class="confirmed-album btn-toolbar" *ngIf="confirmed == album._id">
+					<a class="btn btn-sm btn-danger" (click)="onDeleteAlbum(album._id)">Delete</a>
+					<a class="btn btn-sm btn-primary" (click)="onCancelAlbum()">Cancel</a>
+				</div>
+			</li>
+		</ul>
 	</div>
 
 </div>

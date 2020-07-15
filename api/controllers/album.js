@@ -47,10 +47,10 @@ exports.getAlbums = (req, res, next) => {
 	//check if artistId is NOT defined
 	if (!artistId) {
 		//retrieve ALL albums from db and sort by title
-		const find = Album.find({}).sort('title');
+		var find = Album.find({}).sort('title');
 	} else {
 		//retrieve albums from specific artist from db and sort by year
-		const find = Album.find({ artist: artistId }).sort('year');
+		var find = Album.find({ artist: artistId }).sort('year');
 	}
 
 	//populate found albums with artist info
@@ -126,7 +126,7 @@ exports.updateAlbum = (req, res, next) => {
 			res.status(500).send({ message: 'Error on the request to update Album' });
 		} else {
 			//check if album is not found
-			if (!updateAlbum) {
+			if (!updatedAlbum) {
 				//send 404 error
 				res.status(404).send({ message: 'Album not found' });
 			} else {
@@ -193,7 +193,7 @@ exports.uploadImage = (req, res, next) => {
 		const file_name = file_split[2];
 
 		//split on dot and get file extension
-		const ext_split = name.split('\.');
+		const ext_split = file_name.split('\.');
 		const file_ext = ext_split[1];
 
 		//check if file has correct extension

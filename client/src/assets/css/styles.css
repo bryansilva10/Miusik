@@ -19,6 +19,13 @@ html, body {
 	background: #222326;
 }
 
+.confirmed-album {
+	margin-top: -40px;
+	margin-left: 5px !important;
+	position: absolute;
+	background: #222326;
+}
+
 .head-title {
 	font-size: 20px;
 	font-weight: bold;
@@ -83,13 +90,15 @@ html, body {
 	width: 57px;
 }
 
-/* ARTIST RELATED */
+/* ARTIST and ALBUM RELATED */
 
-.artistImageForEdit img{
+.artistImageForEdit img,
+.albumImageForEdit img {
 	width: 300px;
 }
 
-.artistList {
+.artistList, 
+.album-list {
 	margin: 0;
 	padding: 0px;
 	margin-top: 100px;
@@ -97,7 +106,12 @@ html, body {
 	list-style: none;
 }
 
-.artistItem {
+.album-list {
+	margin-top: 0;
+}
+
+.artistItem, 
+.album-item {
 	width: 25% !important;
 	margin: 0px;
 	padding-right: 0px !important;
@@ -108,25 +122,36 @@ html, body {
 	/* margin-top: 20px; */
 }
 
-.artistItem .artistImage {
+.album-item {
+	height: 380px;
+}
+
+.artistItem .artistImage, 
+.album-item .album-image {
 	height: 270px;
 	width: 100%;
 	overflow: hidden;
 	background: black;
 }
 
-.artistItem .artistImage img{
+.artistItem .artistImage img {
 	height: 100%;
 	min-width: 100%;
 }
 
-.artistItem .artistName{
+.album-item .album-image img {
+	width: 100%;
+}
+
+.artistItem .artistName,
+.album-item .album-name {
 	color: white;
 	padding: 10px;
 	background: #222326;
 }
 
-.artistItem .artistName a {
+.artistItem .artistName a,
+.album-item .album-name a {
 	color: white;
 }
 

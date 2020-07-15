@@ -14,7 +14,7 @@ const multipart = require('connect-multiparty');
 const md_upload = multipart({ uploadDir: './uploads/albums' });
 
 //GET route for retrieving a specific album
-api.get('/album', auth.ensureAuth, AlbumController.getAlbum);
+api.get('/album/:id', auth.ensureAuth, AlbumController.getAlbum);
 
 //POST route to save/add an album
 api.post('/album', auth.ensureAuth, AlbumController.saveAlbum);

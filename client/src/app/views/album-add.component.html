@@ -28,6 +28,18 @@
 			<span *ngIf="!year.valid && year.touched">Year is not valid</span>
 		</p>
 
+		<div *ngIf="isEdit">
+			<div class="albumImageForEdit" *ngIf="album.image && album.image != 'null'">
+				<img src="{{url + 'get-image-album/' + album.image }}">
+			</div>
+
+			<p>
+				<label for="ArtistImage">Upload Album Image</label>
+				<input type="file" placeholder="Upload Image" (change)="fileChangeEvent($event)">
+			</p>
+
+		</div>
+
 		<input type="submit" value="{{componentTitle}}" [disabled]="!formAlbum.form.valid" class="btn btn-success">
 	</form>
 </div>

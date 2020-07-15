@@ -22,6 +22,8 @@ export class AlbumAddComponent implements OnInit {
 	public token;
 	public url: string;
 	public alertMessage;
+	public isEdit;
+	public filesToUpload: Array<File>;
 
 	//constructor, inject services
 	constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private artistService: ArtistService, private albumService: AlbumService) {
@@ -32,6 +34,7 @@ export class AlbumAddComponent implements OnInit {
 		this.url = GLOBAL.url;
 		//initialize album object
 		this.album = new Album('', '', 2020, '', '');
+		this.isEdit = false;
 	}
 
 	ngOnInit() {
@@ -61,7 +64,7 @@ export class AlbumAddComponent implements OnInit {
 							//assign data from db to component property
 							this.album = response.album;
 							//redirect
-							// this.router.navigate(['./edit-artist', response.artist._id]);
+							this.router.navigate(['/edit-album', response.album._id]);
 						}
 					},
 					//in case of error
@@ -81,5 +84,9 @@ export class AlbumAddComponent implements OnInit {
 				)
 		})
 		console.log(this.album);
+	}
+
+	fileChangeEvent(fileInput: any) {
+		this.filesToUpload = <Array<File>>fileInput.target.files;
 	}
 }

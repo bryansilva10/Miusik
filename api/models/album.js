@@ -9,7 +9,7 @@ const AlbumSchema = Schema({
 	year: Number,
 	image: String,
 	artist: {
-		type: Schema.Types.ObjectId,
+		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Artist'
 	}
 })
