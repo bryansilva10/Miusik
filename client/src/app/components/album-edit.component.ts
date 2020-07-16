@@ -32,7 +32,7 @@ export class AlbumEditComponent implements OnInit {
 		this.token = this.userService.getToken();
 		this.url = GLOBAL.url;
 		//initialize album object
-		this.album = new Album('', '', 2020, '', '');
+		this.album = new Album('', '', '', 2020, '', '');
 		this.isEdit = true;
 	}
 

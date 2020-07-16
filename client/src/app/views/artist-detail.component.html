@@ -24,7 +24,7 @@
 				</div>
 				<div class="album-name">
 					<p>
-						<a href="#">{{album.title}}</a>
+						<a [routerLink]="['/album', album._id]">{{album.title}}</a>
 					</p>
 					<p>
 						<a [routerLink]="['/artist', album.artist._id]">{{album.artist.name}}</a>

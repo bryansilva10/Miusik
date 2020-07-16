@@ -142,8 +142,4 @@ export class ArtistDetailComponent implements OnInit {
 				}
 			)
 	}
-
-
-
-
 }

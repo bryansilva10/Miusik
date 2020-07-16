@@ -1,13 +1,13 @@
 /*SONG MODEL */
 
 //export a class for song model
-export class User {
+export class Song {
 	//constructor for class
 	constructor(
 		public number: number,
 		public name: string,
 		public duration: string,
-		public image: string,
+		public file: string,
 		public album: string
 	) { }
 }

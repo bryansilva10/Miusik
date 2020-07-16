@@ -1,0 +1,15 @@
+<div class="album-box" *ngIf="album">
+	<div id="album-head-card">
+		<div class="image">
+			<img src="{{url + 'get-image-album/' + album.image}}">
+		</div>
+		<div class="data">
+			<h1>{{album.title}}</h1>
+			<p>{{album.year}}</p>
+			<p>{{album.description}}</p>
+
+			<a class="btn btn-default" *ngIf="identity.role == 'ROLE_ADMIN'" [routerLink]="['/create-song', album._id]">Add
+				Song</a>
+		</div>
+	</div>
+</div>
