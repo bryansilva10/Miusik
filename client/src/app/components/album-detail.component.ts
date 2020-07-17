@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { AlbumService } from 'src/app/services/album.service';
+import { SongService } from 'src/app/services/song.service';
 import { GLOBAL } from '../services/global';
 import { Album } from '../models/album';
+import { Song } from '../models/song';
 
 
 @Component({
@@ -14,6 +16,7 @@ import { Album } from '../models/album';
 export class AlbumDetailComponent implements OnInit {
 	//component properties
 	public album: Album;
+	public songs: Song[];
 	public identity;
 	public token;
 	public url: string;
@@ -21,7 +24,7 @@ export class AlbumDetailComponent implements OnInit {
 	public confirmed;
 
 	//constructor, inject services
-	constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private albumService: AlbumService) {
+	constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private albumService: AlbumService, private songService: SongService) {
 		//set properties
 		this.identity = this.userService.getIdentity();
 		this.token = this.userService.getToken();
@@ -53,32 +56,33 @@ export class AlbumDetailComponent implements OnInit {
 							//retrieve artist and assign to component prop
 							this.album = response.album;
 
-							//RETRIEVE ALBUMS
-							// this.albumService.getAlbums(this.token, response.artist._id)
-							// 	//subscribe to response
-							// 	.subscribe(
-							// 		response => {
-							// 			//if there is not a resonse
-							// 			if (!response.albums) {
-							// 				this.alertMessage = 'This Artist has no Albums';
-							// 			} else {
-							// 				//response with albums assinged to component prop
-							// 				this.albums = response.albums;
-							// 			}
-							// 		},
-							// 		error => {
-							// 			//create message
-							// 			const errorMessage = <any>error;
 
-							// 			//If ther is an error, log it
-							// 			if (errorMessage != null) {
-							// 				//parse body of error to json
-							// 				// let body = JSON.parse(error._body);
-							// 				//assign error on body to errormessage property
-							// 				// this.alertMessage = error.error.message;
-							// 				console.log(errorMessage);
-							// 			}
-							// 		});
+							//RETRIEVE SONGS
+							this.songService.getSongs(this.token, response.album._id)
+								//subscribe to response
+								.subscribe(
+									response => {
+										//if there is not a resonse
+										if (!response.songs) {
+											this.alertMessage = 'This Album has no Songs';
+										} else {
+											//response with songs assinged to component prop
+											this.songs = response.songs;
+										}
+									},
+									error => {
+										//create message
+										const errorMessage = <any>error;
+
+										//If ther is an error, log it
+										if (errorMessage != null) {
+											//parse body of error to json
+											// let body = JSON.parse(error._body);
+											//assign error on body to errormessage property
+											// this.alertMessage = error.error.message;
+											console.log(errorMessage);
+										}
+									});
 						}
 					},
 					//in case of error
@@ -97,5 +101,49 @@ export class AlbumDetailComponent implements OnInit {
 					}
 				)
 		})
+	}
+
+	//method to confirm deletion
+	onDeleteConfirm(id) {
+		//asign id to confirmed
+		this.confirmed = id;
+	}
+
+	//method to cancel deletion
+	onCancelSong() {
+		this.confirmed = null;
+	}
+
+	//method to delete song
+	onDeleteSong(id) {
+		//use service
+		this.songService.deleteSong(this.token, id)
+			//subscribe to response
+			.subscribe(
+				response => {
+					//if there is no song
+					if (!response.song) {
+						//alert
+						alert('Error on Server');
+					}
+
+					//refresh list
+					this.getAlbum();
+				},
+				//in case of error
+				error => {
+					//create message
+					const errorMessage = <any>error;
+
+					//If ther is an error, log it
+					if (errorMessage != null) {
+						//parse body of error to json
+						// let body = JSON.parse(error._body);
+						//assign error on body to errormessage property
+						// this.alertMessage = error.error.message;
+						console.log(errorMessage);
+					}
+				}
+			)
 	}
 }

@@ -14,7 +14,7 @@ const Song = require('../models/song');
 //method to get artists
 exports.getAlbum = (req, res, next) => {
 	//retrieve album id from url
-	const albumId = req.params.id;
+	var albumId = req.params.id;
 
 	//find album by id
 	Album.findById(albumId)

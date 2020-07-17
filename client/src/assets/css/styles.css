@@ -168,3 +168,36 @@ html, body {
 #album-head-card .image img {
 	width: 300px;
 }
+
+/*SONGS*/
+
+#songs-list {
+	margin: 0;
+	padding: 0;
+}
+
+.song-item {
+	list-style: none;
+	border-bottom: 1px solid #ccc;
+	padding-top: 2px;
+}
+
+.song-item .buttons {
+	float: right;
+}
+
+.song-item .title {
+	padding:10px;
+}
+
+.song-item .btn-success {
+	margin-right: 5px;
+}
+
+.confirmedSong {
+	margin-top: -34px;
+	margin-left: 5px !important;
+	position: absolute;
+	right: 10px;
+	background: #eee;
+}

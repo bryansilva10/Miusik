@@ -62,7 +62,7 @@ export class SongAddComponent implements OnInit {
 							//assign data from db to component property
 							this.song = response.song;
 							//redirect
-							//this.router.navigate(['/edit-album', response.album._id]);
+							this.router.navigate(['/edit-song', response.song._id]);
 						}
 					},
 					//in case of error

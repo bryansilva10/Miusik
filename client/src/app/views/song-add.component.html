@@ -27,13 +27,13 @@
 		<div *ngIf="isEdit">
 			<div class="songFileForEdit" *ngIf="song.file && song.file != 'null'">
 				<audio controls>
-					<source src="{{url + 'get-file-song/' + song.file}}" type="audio/mpeg" />
+					<source src="{{url + 'get-song-file/' + song.file}}" type="audio/mpeg" />
 					Your browser does not support music player.
 				</audio>
 			</div>
 
 			<p>
-				<label for="ArtistImage">Upload Song</label>
+				<label for="Song">Upload Song</label>
 				<input type="file" placeholder="Upload Song" (change)="fileChangeEvent($event)">
 			</p>
 

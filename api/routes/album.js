@@ -19,7 +19,7 @@ api.get('/album/:id', auth.ensureAuth, AlbumController.getAlbum);
 //POST route to save/add an album
 api.post('/album', auth.ensureAuth, AlbumController.saveAlbum);
 
-//GET route to retrieve albums from specific artist
+//GET route to retrieve all albums from specific artist
 api.get('/albums/:artist?', auth.ensureAuth, AlbumController.getAlbums);
 
 //PUT route to update an album

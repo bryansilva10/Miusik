@@ -49,11 +49,11 @@ exports.getSongs = (req, res, next) => {
 	if (!albumId) {
 		//response with all songs
 		//find all songs and sort by song numbr
-		const find = Song.find({}).sort('number');
+		var find = Song.find({}).sort('number');
 	} else {
 		//response wth album specific songs
 		//find song by album id and sort by number
-		const find = Song.find({ album: albumId }).sort('number');
+		var find = Song.find({ album: albumId }).sort('number');
 	}
 
 	//populate the album
@@ -78,7 +78,7 @@ exports.getSongs = (req, res, next) => {
 					res.status(404).send({ message: 'Could not find Songs' });
 				} else {
 					//success response
-					es.status(200).send({ songs })
+					res.status(200).send({ songs })
 				}
 			}
 		})
@@ -124,10 +124,10 @@ exports.saveSong = (req, res, next) => {
 //method to update song
 exports.updateSong = (req, res, next) => {
 	//retrieve song id from url
-	const songId = req.params.id;
+	var songId = req.params.id;
 
 	//store modifications
-	const update = req.body;
+	var update = req.body;
 
 	Song.findByIdAndUpdate(songId, update, (err, updatedSong) => {
 		//check if there is an error on request
@@ -188,7 +188,7 @@ exports.uploadFile = (req, res, next) => {
 		const file_name = file_split[2];
 
 		//split on dot and get file extension
-		const ext_split = name.split('\.');
+		const ext_split = file_name.split('\.');
 		const file_ext = ext_split[1];
 
 		//check if file has correct extension

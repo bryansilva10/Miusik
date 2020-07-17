@@ -14,7 +14,7 @@ import { HomeComponent } from './components/home.component';
 import { AlbumEditComponent } from './components/album-edit.component';
 import { AlbumDetailComponent } from './components/album-detail.component';
 import { SongAddComponent } from './components/song-add.component';
-
+import { SongEditComponent } from './components/song-edit.component';
 
 //array for all routes
 const appRoutes: Routes = [
@@ -53,6 +53,10 @@ const appRoutes: Routes = [
 	{
 		path: 'create-song/:album',
 		component: SongAddComponent
+	},
+	{
+		path: 'edit-song/:id',
+		component: SongEditComponent
 	},
 	{
 		path: 'my-info',
