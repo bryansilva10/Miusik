@@ -221,7 +221,7 @@ exports.getSongFile = (req, res, next) => {
 	//retrieve image file name from params
 	const songFile = req.params.songFile;
 	//entire file path
-	const file_path = `./uploads/songs/${songFile}`;
+	const file_path = './uploads/songs/' + songFile;
 
 	//check if file exists in folder
 	//callback to do something with it

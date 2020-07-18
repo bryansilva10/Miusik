@@ -41,6 +41,8 @@
 
 <div [class.hidden]="!identity" class="central col-lg-11">
 	<router-outlet></router-outlet>
+	<div class="clearfix"></div>
+	<player class="player" *ngIf="identity"></player>
 </div>
 
 <!-- Show only when not authenticated -->

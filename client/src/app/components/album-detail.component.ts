@@ -146,4 +146,29 @@ export class AlbumDetailComponent implements OnInit {
 				}
 			)
 	}
+
+	//method to play de song
+	startPlayer(song) {
+		//convert song object to JSON
+		let songPlayer = JSON.stringify(song);
+		//file url
+		let filePath = this.url + 'get-song-file/' + song.file;
+		//image url
+		let imagePath = this.url + 'get-image-album/' + song.album.image;
+
+		//use local storage to persist song being played
+		localStorage.setItem('songPlaying', songPlayer);
+
+		//set src attribute in player to current song
+		document.getElementById('mp3-source').setAttribute('src', filePath);
+
+		//type cast player to force it to load with current song and play it using audio feature html5
+		(document.getElementById('player') as any).load();
+		(document.getElementById('player') as any).play();
+
+		//set props in DOM
+		document.getElementById('play-song-title').innerHTML = song.name;
+		document.getElementById('play-song-artist').innerHTML = song.album.artist.name;
+		document.getElementById('play-image-album').setAttribute('src', imagePath);
+	}
 }

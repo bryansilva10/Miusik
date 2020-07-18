@@ -174,6 +174,7 @@ html, body {
 #songs-list {
 	margin: 0;
 	padding: 0;
+	min-height: 800px;
 }
 
 .song-item {
@@ -200,4 +201,45 @@ html, body {
 	position: absolute;
 	right: 10px;
 	background: #eee;
+}
+
+/*MUSIC PLAYER*/
+
+.player {
+	background: #1c1c1f;
+	position: fixed;
+	width: 92%;
+	bottom: 0;
+	padding: 40px;
+	margin-left: -15px;
+	border-left: 1px solid #444;
+	color: #ccc;
+}
+
+.player .album-image {
+	float: left;
+	width: 140px;
+	height: 120px;
+	overflow: hidden;
+}
+
+.player .album-image img {
+	height: 100%;
+}
+
+.player .audio-file{
+	width: 85%;
+	height: 50px;
+	margin-top: 25px;
+	margin-left: 10px;
+	float: left;
+}
+
+.player audio {
+	width: 100%;
+	height: 40px;
+}
+
+#player {
+	margin-top: 5px;
 }
